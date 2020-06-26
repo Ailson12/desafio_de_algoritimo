@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Segundo Teste</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-3">
+        <h6 class="text-center">Segundo Teste</h6>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">INFORMATIVO:</h4>
+            <p>As maças custam R$ 1,30 cada, Se fozerem compradas menos de uma duzia, e R$ 1,00 se forem compradas pelo menos 12.
+                Escreva um programa que leia o numero de maças compradas, calcule e escreva o custo total da compra
+            </p>
+            <hr>
+          </div>
+        <button class="btn btn-outline-success btn-block">Comprar Maçãs</button>
+
+        <div class="row mt-3">
+            <div class="col-md-4 order-md-2 mb-4">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Loja de Maças</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (USD)</span>
+                  <strong id="total">R$ 0</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js" integrity="sha256-apFUVcutYBHTJh5O835gpzGcVk3v6iUxg38lKBpQMDA=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<script>
+    $(function() {
+
+        function total(x, y) {
+            let multiplicacao = (parseFloat(x) * parseFloat(y));
+            $("#total").text("R$ " + multiplicacao.toFixed(2));
+        }
+
+        $("button").click(function() {
+            Swal.fire({
+                title: 'Loja de Maças',
+                input: 'number',
+                inputPlaceholder: 'Quantidade',
+                customClass: {
+                    input: 'form-control',
+                }
+            }).then((result) => {
+                if (result.value >= 12 ) {
+                    let maca = 1.00;
+                    let quantidade = result.value;
+
+                    total(maca, quantidade);
+                } else {
+                   let maca = 1.30;
+                   let quantidade = result.value;
+
+                   total(maca, quantidade);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
